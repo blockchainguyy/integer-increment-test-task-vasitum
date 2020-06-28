@@ -2,7 +2,7 @@
   "name": "integer-increment-test-task-vasitum",
   "version": "0.0.1",
   "description": "A way to get integers that automatically increment so that a user can generate identifiers from within my code",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node ./server.js",
     "start-dev": "nodemon ./server.js"
