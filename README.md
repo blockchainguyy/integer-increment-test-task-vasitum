@@ -85,7 +85,7 @@ TOKEN=$(curl --location --request POST 'http://localhost:4000/v1/users/authentic
 
 #### Get current identifier
 
-I have stored an identifier with respect to each user. the user will be identified using the token passed. On creation each identifier is defaulted to zero. I have modified the curl request mentioned in the test task and returned a JSON instead of returning the number directly.
+I have stored an identifier with respect to each user. the user will be identified using the token passed. On creation each identifier is defaulted to zero. I have modified the curl request mentioned in the test task and returned a JSON instead of returning the number directly. Calling this API will increment the current identifier for the user So in the next call it will be incremented by 1.
 
 ```sh
 curl --location --request GET 'http://localhost:4000/v1/current' \
@@ -97,14 +97,14 @@ curl --location --request GET 'http://localhost:4000/v1/current' \
 
 #### Get next identifier
 
-You can use the following command to get the next identifier for a particular user.
+You can use the following command to get the next identifier for a particular user. Calling this API will increment the current identifier for the user So in the next call it will be incremented by 1.
 
 ```sh
 curl --location --request GET 'http://localhost:4000/v1/next' \
 --header "Authorization: Bearer $TOKEN"
 
 # Output:
-{"next":1}
+{"next":2}
 ```
 
 #### Update identifier
