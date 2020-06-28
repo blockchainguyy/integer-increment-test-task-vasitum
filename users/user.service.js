@@ -12,6 +12,7 @@ module.exports = {
   getById,
   create,
   update,
+  findByIdAndUpdate,
   delete: _delete,
 };
 
@@ -32,6 +33,10 @@ async function getAll() {
 
 async function getById(id) {
   return await User.findById(id);
+}
+
+async function findByIdAndUpdate(id) {
+  return await User.findByIdAndUpdate(id, { $inc: { identifier: 1 } });
 }
 
 async function create(userParam) {

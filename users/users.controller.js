@@ -50,14 +50,14 @@ function getCurrentUser(req, res, next) {
 
 function getCurrentIdentifier(req, res, next) {
   userService
-    .getById(req.user.sub)
+    .findByIdAndUpdate(req.user.sub)
     .then((user) => (user ? res.json({ current: user.identifier }) : res.sendStatus(404)))
     .catch((err) => next(err));
 }
 
 function getNextIdentifier(req, res, next) {
   userService
-    .getById(req.user.sub)
+    .findByIdAndUpdate(req.user.sub)
     .then((user) => (user ? res.json({ next: user.identifier + 1 }) : res.sendStatus(404)))
     .catch((err) => next(err));
 }
